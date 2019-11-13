@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const BOTTOM_CONTAINER_HEIGHT = 80.0;
 const BOTTOM_CONTAINER_COLOR = Color(0xFFEB1555);
@@ -25,11 +26,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     color: ACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      text: "MALE",
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     color: ACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      text: "FEMALE",
+                    ),
                   ),
                 ),
               ],
@@ -70,8 +79,10 @@ class _InputPageState extends State<InputPage> {
 
 class ReusableCard extends StatelessWidget {
   final Color color;
+  final Widget cardChild;
 
-  const ReusableCard({Key key, @required this.color}) : super(key: key);
+  const ReusableCard({Key key, @required this.color, this.cardChild})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +92,38 @@ class ReusableCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: color,
       ),
+      child: cardChild,
+    );
+  }
+}
+
+class IconContent extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const IconContent({Key key, @required this.icon, @required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E98),
+          ),
+        )
+      ],
     );
   }
 }
