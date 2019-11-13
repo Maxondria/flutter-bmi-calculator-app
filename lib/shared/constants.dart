@@ -11,6 +11,7 @@ const TextStyle kNUMBER_TEXTSTYLE = TextStyle(
 
 const double kBOTTOM_CONTAINER_HEIGHT = 80.0;
 const Color kBOTTOM_CONTAINER_COLOR = Color(0xFFEB1555);
+const Color kSLIDER_THUMBOVERLAY_COLOR = Color(0x29EB1555);
 const Color kSLIDER_INACTIVE_COLOR = Color(0xFF8D8E98);
 const Color kACTIVE_CARD_COLOR = Color(0xFF1D1E33);
 const Color kINACTIVE_CARD_COLOR = Color(0xFF111328);
