@@ -31,39 +31,31 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        activeGender = Gender.MALE;
-                      });
-                    },
-                    child: ReusableCard(
-                      color: activeGender != Gender.MALE
-                          ? INACTIVE_CARD_COLOR
-                          : ACTIVE_CARD_COLOR,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        text: "MALE",
-                      ),
+                  child: ReusableCard(
+                    color: activeGender != Gender.MALE
+                        ? INACTIVE_CARD_COLOR
+                        : ACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      text: "MALE",
                     ),
+                    onTap: () => setState(() {
+                      activeGender = Gender.MALE;
+                    }),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        activeGender = Gender.FEMALE;
-                      });
-                    },
-                    child: ReusableCard(
-                      color: activeGender != Gender.FEMALE
-                          ? INACTIVE_CARD_COLOR
-                          : ACTIVE_CARD_COLOR,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        text: "FEMALE",
-                      ),
+                  child: ReusableCard(
+                    color: activeGender != Gender.FEMALE
+                        ? INACTIVE_CARD_COLOR
+                        : ACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      text: "FEMALE",
                     ),
+                    onTap: () => setState(() {
+                      activeGender = Gender.FEMALE;
+                    }),
                   ),
                 ),
               ],
