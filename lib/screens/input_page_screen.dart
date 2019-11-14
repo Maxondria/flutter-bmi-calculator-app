@@ -1,6 +1,9 @@
+import 'package:bmi_calculator/screens/results_screen.dart';
 import 'package:bmi_calculator/shared/constants.dart';
-import 'package:bmi_calculator/widgets/icon_content.dart';
-import 'package:bmi_calculator/widgets/reusable_card.dart';
+import 'package:bmi_calculator/shared/widgets/bottom_button.dart';
+import 'package:bmi_calculator/shared/widgets/icon_content.dart';
+import 'package:bmi_calculator/shared/widgets/reusable_card.dart';
+import 'package:bmi_calculator/shared/widgets/round_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -124,7 +127,9 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () => setState(() {
-                                weight--;
+                                if (weight > 0) {
+                                  weight--;
+                                }
                               }),
                             ),
                             SizedBox(
@@ -162,7 +167,9 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () => setState(() {
-                                age--;
+                                if (age > 0) {
+                                  age--;
+                                }
                               }),
                             ),
                             SizedBox(
@@ -183,36 +190,17 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBOTTOM_CONTAINER_COLOR,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBOTTOM_CONTAINER_HEIGHT,
-          )
+          BottomButton(
+              text: 'CALCULATE',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultsScreen(),
+                  ),
+                );
+              })
         ],
-      ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final Function onPressed;
-
-  RoundIconButton({Key key, @required this.icon, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      child: Icon(icon),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
       ),
     );
   }

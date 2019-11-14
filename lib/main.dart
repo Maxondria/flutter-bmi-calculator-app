@@ -1,5 +1,5 @@
+import 'package:bmi_calculator/screens/input_page_screen.dart';
 import 'package:bmi_calculator/shared/constants.dart';
-import 'package:bmi_calculator/widgets/input_page_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(BMICalculator());
@@ -11,6 +11,7 @@ class BMICalculator extends StatelessWidget {
       home: SafeArea(
         child: InputPage(),
       ),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),
         sliderTheme: SliderTheme.of(context).copyWith(
