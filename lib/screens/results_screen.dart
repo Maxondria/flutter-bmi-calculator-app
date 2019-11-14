@@ -4,6 +4,15 @@ import 'package:bmi_calculator/shared/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String bmiInterpretation;
+
+  ResultsScreen(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.bmiInterpretation});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,15 +46,15 @@ class ResultsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'NORMAL',
+                      resultText,
                       style: kRESULT_TEXTSTYLE,
                     ),
                     Text(
-                      '18.5',
+                      bmiResult,
                       style: kBMI_TEXTSTYLE,
                     ),
                     Text(
-                      'Your BMI result is quite low, you should eat me',
+                      bmiInterpretation,
                       style: kBMI_BODY_TEXTSTYLE,
                       textAlign: TextAlign.center,
                     ),
